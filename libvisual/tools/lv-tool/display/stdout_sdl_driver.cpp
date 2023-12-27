@@ -29,8 +29,8 @@
 #include <libvisual/libvisual.h>
 
 #include <SDL.h>
-#include <GL/gl.h>
-#include <GL/glext.h> // For GL_BGR in systems where it's not defined in GL/gl.h
+#include <OpenGL/gl.h>
+#include <OpenGL/glext.h> // For GL_BGR in systems where it's not defined in GL/gl.h
 #include <array>
 #include <vector>
 #include <cstring>

@@ -26,7 +26,11 @@ IF(HAVE_SDL)
     display/sdl_driver.cpp
     display/stdout_sdl_driver.cpp
   )
+
   TARGET_LINK_LIBRARIES(lv-tool PRIVATE SDL::SDL)
+  if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    TARGET_LINK_LIBRARIES(lv-tool PRIVATE "-framework OpenGL")
+  endif()
 ENDIF()
 
 INSTALL(TARGETS lv-tool RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
