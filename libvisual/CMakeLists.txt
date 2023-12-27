@@ -87,7 +87,7 @@ FIND_PACKAGE(PNG REQUIRED)
 
 # Internationalization
 SET(GETTEXT_PACKAGE "libvisual-${LV_VERSION_SUFFIX}")
-OPTION(ENABLE_NLS "Enable internationalization" yes)
+OPTION(ENABLE_NLS "Enable internationalization" no)
 IF(ENABLE_NLS)
   FIND_PACKAGE(Gettext REQUIRED)
   SET(HAVE_GETTEXT ${GETTEXT_FOUND})
