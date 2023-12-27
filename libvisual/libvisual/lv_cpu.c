@@ -34,6 +34,13 @@
 #include "lv_common.h"
 #include <unistd.h>
 
+#if defined(VISUAL_OS_DARWIN)
+typedef unsigned int u_int ;
+typedef unsigned char u_char ;
+typedef unsigned short u_short ;
+#include "sys/sysctl.h"
+#endif
+
 #if defined(VISUAL_ARCH_POWERPC)
 #if defined(VISUAL_OS_DARWIN)
 #include <sys/sysctl.h>

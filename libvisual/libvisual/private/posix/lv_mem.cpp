@@ -23,12 +23,20 @@
 
 #include "config.h"
 #include "lv_mem.h"
+#if defined(VISUAL_OS_DARWIN)
+#include "stdlib.h"
+#else
 #include "malloc.h"
+#endif
 #include <cstdlib>
 
 void* visual_mem_malloc_aligned (visual_size_t size, visual_size_t alignment)
 {
+#if defined(VISUAL_OS_DARWIN) //memalign is not actually needed on macOS
+    auto ret = posix_memalign(nullptr, alignment, size);
+#else
     return memalign (alignment, size);
+#endif
 }
 
 void visual_mem_free_aligned (void* ptr)

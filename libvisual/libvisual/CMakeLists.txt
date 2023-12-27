@@ -168,7 +168,11 @@ TARGET_INCLUDE_DIRECTORIES(libvisual
 )
 
 IF(ENABLE_SO_UNRESOLVED_SYMBOL_CHECKS)
-  TARGET_LINK_OPTIONS(libvisual PRIVATE -Wl,--no-undefined)
+  if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    TARGET_LINK_OPTIONS(libvisual PRIVATE -Wl)
+  else()
+    TARGET_LINK_OPTIONS(libvisual PRIVATE -Wl,--no-undefined)
+  endif()
 ENDIF()
 
 TARGET_LINK_LIBRARIES(libvisual

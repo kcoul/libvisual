@@ -7,3 +7,7 @@
 
 # VSCode files
 .vscode
+
+
+.idea
+cmake-build-*
